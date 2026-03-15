@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAO Garten & Landschaftsbau – Ihr Gärtner in der Region</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green-1: #60A884;
+      --green-2: #3CA200;
+      --green-3: #E8F5D3;
+      --green-4: #F4F6F0;
+      --green-dark: #2A5C0C;
+      --yellow: #F2D701;
+      --text: #383838;
+      --text-dark: #1b1b1b;
+      --text-muted: #535353;
+      --white: #FFFFFF;
+      --max-w: 1280px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Parkinsans', sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.4em;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Parkinsans', sans-serif;
+      font-weight: 400;
+      line-height: 1.2em;
+    }
+
+    h1 { font-size: 46px; }
+    h2 { font-size: 40px; }
+    h3 { font-size: 30px; }
+    h4 { font-size: 22px; }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 50px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 24px;
+      font-family: 'Parkinsans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-yellow {
+      background: var(--yellow);
+      color: #000;
+      box-shadow: 0 4px 16px rgba(242,215,1,0.35);
+    }
+    .btn-yellow:hover { box-shadow: 0 8px 24px rgba(242,215,1,0.45); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.7);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+    .btn-green {
+      background: var(--green-2);
+      color: var(--white);
+      box-shadow: 0 4px 16px rgba(60,162,0,0.3);
+    }
+    .btn-green:hover { box-shadow: 0 8px 24px rgba(60,162,0,0.4); }
+
+    /* ========================
+       TOP BAR
+    ======================== */
+    .topbar {
+      background: var(--green-dark);
+      color: rgba(255,255,255,0.85);
+      font-size: 13px;
+      padding: 8px 0;
+    }
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .topbar a { color: rgba(255,255,255,0.85); }
+    .topbar a:hover { color: #fff; }
+    .topbar-left, .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .topbar-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ========================
+       NAVIGATION
+    ======================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .logo img {
+      height: 64px;
+      width: auto;
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text);
+      position: relative;
+      padding-bottom: 3px;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--green-2);
+      transition: width 0.25s ease;
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover { color: var(--green-dark); }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-phone {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--green-dark);
+    }
+
+    /* ========================
+       HERO  –  two-column layout
+    ======================== */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, #1a3a0a 0%, #2A5C0C 40%, #3CA200 100%);
+      overflow: hidden;
+    }
+    .hero-shape {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(96,168,132,0.25) 0%, transparent 70%);
+    }
+    .hero-shape-1 { width: 500px; height: 500px; top: -160px; right: 40%; }
+    .hero-shape-2 { width: 350px; height: 350px; bottom: -120px; left: 100px; background: radial-gradient(circle, rgba(60,162,0,0.18) 0%, transparent 70%); }
+
+    .hero .container {
+      position: relative;
+      z-index: 2;
+      padding-top: 80px;
+      padding-bottom: 0;
+    }
+
+    /* Two-column inner layout */
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      padding-bottom: 60px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 50px;
+      padding: 6px 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 24px;
+    }
+    .hero-badge-dot {
+      width: 8px; height: 8px;
+      background: var(--yellow);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 4vw, 54px);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.15em;
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--yellow);
+    }
+    .hero-sub {
+      font-size: 17px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6em;
+      margin-bottom: 36px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* Hero image – right column */
+    .hero-image-col {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .hero-person-img {
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 24px 24px 0 0;
+      display: block;
+      box-shadow: 0 -8px 48px rgba(0,0,0,0.3);
+    }
+    /* Subtle gradient at bottom so it blends into stats */
+    .hero-image-col::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 80px;
+      background: linear-gradient(to top, rgba(42,92,12,0.6), transparent);
+      border-radius: 0 0 0 0;
+      pointer-events: none;
+    }
+
+    /* Stats bar below */
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      padding: 32px 0;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      flex-wrap: wrap;
+    }
+    .hero-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .hero-stat-num {
+      font-size: 30px;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+      font-weight: 300;
+    }
+
+    /* ========================
+       TRUST BAR
+    ======================== */
+    .trust-bar {
+      background: var(--green-3);
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(60,162,0,0.15);
+    }
+    .trust-bar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--green-dark);
+      font-weight: 400;
+    }
+    .trust-icon {
+      width: 36px; height: 36px;
+      background: var(--green-2);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .trust-divider {
+      width: 1px; height: 36px;
+      background: rgba(60,162,0,0.3);
+    }
+
+    /* ========================
+       SECTION COMMONS
+    ======================== */
+    .section { padding: 90px 0; }
+    .section-alt { background: var(--green-4); }
+    .section-green { background: var(--green-3); }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--green-2);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 20px; height: 2px;
+      background: var(--green-2);
+    }
+    .section-title {
+      font-size: 40px;
+      font-weight: 400;
+      color: var(--text-dark);
+      line-height: 1.2em;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 580px;
+      line-height: 1.7em;
+    }
+
+    /* ========================
+       SERVICES
+    ======================== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .service-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07), 0 8px 32px rgba(60,162,0,0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1), 0 16px 48px rgba(60,162,0,0.1);
+    }
+    .service-card:focus-visible { outline: 3px solid var(--green-2); outline-offset: 2px; }
+    .service-img {
+      width: 100%; height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+    .service-body { padding: 24px; }
+    .service-body h3 {
+      font-size: 20px; font-weight: 500;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+    .service-body p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6em;
+      margin-bottom: 16px;
+    }
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px; font-weight: 500;
+      color: var(--green-2);
+    }
+    .service-link:hover { text-decoration: underline; }
+
+    /* ========================
+       GALLERY  –  4 items mosaic
+    ======================== */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 260px 260px;
+      gap: 12px;
+      margin-top: 48px;
+    }
+    /* Item 1: tall left (spans 2 rows, 2 cols) */
+    .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+    /* Items 2 & 3: stacked right */
+    /* Item 4: wide bottom right */
+    .gallery-item:nth-child(4) { grid-column: span 2; }
+
+    .gallery-item {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .gallery-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .gallery-item:hover .gallery-img { transform: scale(1.04); }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(42,92,12,0.7) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-overlay-text {
+      color: white;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    /* ========================
+       ABOUT / TEAM
+    ======================== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .about-img-wrapper { position: relative; }
+    .about-img {
+      width: 100%; height: 480px;
+      object-fit: cover;
+      border-radius: 20px;
+      display: block;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.15);
+    }
+    .about-badge {
+      position: absolute;
+      bottom: -20px; right: -20px;
+      background: var(--yellow);
+      color: #000;
+      border-radius: 16px;
+      padding: 20px 24px;
+      box-shadow: 0 8px 24px rgba(242,215,1,0.4);
+      text-align: center;
+    }
+    .about-badge-num { font-size: 36px; font-weight: 700; line-height: 1; }
+    .about-badge-label { font-size: 13px; font-weight: 400; line-height: 1.3; margin-top: 4px; }
+    .about-content { display: flex; flex-direction: column; gap: 20px; }
+    .about-content p { font-size: 16px; line-height: 1.75em; color: var(--text-muted); }
+    .about-features { display: flex; flex-direction: column; gap: 12px; margin: 8px 0; }
+    .about-feature {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 15px; color: var(--text);
+    }
+    .about-feature-icon {
+      width: 22px; height: 22px;
+      background: var(--green-3);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--green-2);
+      font-size: 12px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ========================
+       NUMBERS
+    ======================== */
+    .numbers-section { background: var(--green-dark); padding: 70px 0; }
+    .numbers-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+    .number-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .number-val { font-size: 52px; font-weight: 700; color: var(--yellow); line-height: 1; }
+    .number-label { font-size: 15px; color: rgba(255,255,255,0.75); font-weight: 300; }
+
+    /* ========================
+       WHY US
+    ======================== */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+    .why-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 32px;
+      border: 1px solid rgba(60,162,0,0.12);
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .why-card:hover {
+      border-color: var(--green-1);
+      box-shadow: 0 8px 32px rgba(60,162,0,0.1);
+    }
+    .why-icon {
+      width: 56px; height: 56px;
+      background: var(--green-3);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+    .why-card h4 { font-size: 18px; font-weight: 500; color: var(--text-dark); margin-bottom: 10px; }
+    .why-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7em; }
+
+    /* ========================
+       REVIEWS
+    ======================== */
+    .stars { display: flex; gap: 3px; margin-bottom: 12px; }
+    .star { color: #F59E0B; font-size: 18px; }
+
+    .reviews-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 48px;
+    }
+    .reviews-rating-big { display: flex; align-items: center; gap: 16px; }
+    .rating-num-big { font-size: 64px; font-weight: 700; color: var(--text-dark); line-height: 1; }
+    .rating-info { display: flex; flex-direction: column; gap: 4px; }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .review-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.05);
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .review-text { font-size: 15px; line-height: 1.7em; color: var(--text); flex: 1; }
+    .review-author {
+      display: flex; align-items: center; gap: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+    .review-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--green-3);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 500; color: var(--green-dark); font-size: 16px;
+      flex-shrink: 0;
+    }
+    .review-name { font-size: 14px; font-weight: 500; color: var(--text-dark); }
+    .review-date { font-size: 12px; color: var(--text-muted); }
+    .review-source { display: flex; align-items: center; gap: 4px; font-size: 12px; color: var(--text-muted); margin-left: auto; }
+
+    /* ========================
+       FAQ
+    ======================== */
+    .faq-list { margin-top: 48px; display: flex; flex-direction: column; gap: 12px; max-width: 860px; }
+    .faq-item {
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+    .faq-question {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 24px;
+      cursor: pointer;
+      font-size: 16px; font-weight: 400; color: var(--text-dark);
+      gap: 16px; user-select: none;
+    }
+    .faq-question:hover { color: var(--green-2); }
+    .faq-icon {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--green-3);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--green-2); font-size: 18px;
+      flex-shrink: 0;
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--green-2); color: white; }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-answer-inner { padding: 0 24px 20px; font-size: 15px; line-height: 1.7em; color: var(--text-muted); }
+
+    /* ========================
+       CTA SECTION  –  3 columns: text | image | form
+    ======================== */
+    .cta-section {
+      background: linear-gradient(135deg, var(--green-dark) 0%, #3a7a1a 100%);
+      padding: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(96,168,132,0.2) 0%, transparent 60%);
+    }
+    .cta-inner {
+      position: relative; z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0;
+      align-items: stretch;
+      min-height: 480px;
+    }
+    .cta-text {
+      padding: 80px 48px 80px 0;
+    }
+    .cta-form-col {
+      padding: 80px 0 80px 48px;
+    }
+    .cta-text h2 {
+      font-size: 40px; color: white; font-weight: 400;
+      line-height: 1.2em; margin-bottom: 12px;
+    }
+    .cta-text p {
+      font-size: 16px; color: rgba(255,255,255,0.75);
+      line-height: 1.6em; max-width: 380px;
+    }
+    /* Center image column */
+    .cta-person-col {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      align-self: stretch;
+    }
+    .cta-person-img {
+      width: 280px;
+      height: 100%;
+      min-height: 480px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      box-shadow: 0 0 48px rgba(0,0,0,0.3);
+    }
+
+    .cta-form {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 32px;
+    }
+    .cta-form h3 { font-size: 20px; color: white; font-weight: 500; margin-bottom: 20px; }
+    .form-group { margin-bottom: 14px; }
+    .form-input {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 8px;
+      font-family: 'Parkinsans', sans-serif;
+      font-size: 14px; color: white;
+      outline: none;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .form-input::placeholder { color: rgba(255,255,255,0.55); }
+    .form-input:focus { border-color: var(--yellow); background: rgba(255,255,255,0.2); }
+
+    /* ========================
+       FOOTER
+    ======================== */
+    footer { background: #111; color: rgba(255,255,255,0.7); padding: 64px 0 0; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-logo {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .footer-logo img { height: 44px; width: auto; }
+    .footer-desc { font-size: 14px; line-height: 1.7em; color: rgba(255,255,255,0.55); margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social-btn {
+      width: 36px; height: 36px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.6); font-size: 16px;
+      transition: background 0.2s ease, color 0.2s ease;
+      cursor: pointer; text-decoration: none;
+    }
+    .footer-social-btn:hover { background: var(--green-2); color: white; }
+    .footer-col h4 { font-size: 15px; font-weight: 500; color: white; margin-bottom: 20px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.55); transition: color 0.2s ease; }
+    .footer-links a:hover { color: var(--green-1); }
+    .footer-contact-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 12px;
+    }
+    .footer-contact-item span:first-child { flex-shrink: 0; }
+    .footer-bottom {
+      padding: 20px 0;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 13px; color: rgba(255,255,255,0.35);
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a { color: rgba(255,255,255,0.35); }
+    .footer-bottom-links a:hover { color: rgba(255,255,255,0.6); }
+
+    /* ========================
+       RESPONSIVE
+    ======================== */
+    @media (max-width: 1024px) {
+      .container { padding: 0 30px; }
+      h1 { font-size: 36px; }
+      h2 { font-size: 30px; }
+      .hero-layout { grid-template-columns: 1fr; gap: 40px; }
+      .hero-image-col { display: none; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+      .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+      .gallery-item:nth-child(4) { grid-column: span 2; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .cta-inner { grid-template-columns: 1fr; }
+      .cta-person-col { display: none; }
+    }
+    @media (max-width: 768px) {
+      .container { padding: 0 20px; }
+      .nav-links { display: none; }
+      .topbar-left { display: none; }
+      .section { padding: 60px 0; }
+      .services-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 24px; }
+      .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.6s ease forwards; }
+    .fade-up-delay-1 { animation-delay: 0.1s; opacity: 0; }
+    .fade-up-delay-2 { animation-delay: 0.2s; opacity: 0; }
+    .fade-up-delay-3 { animation-delay: 0.3s; opacity: 0; }
+    .fade-up-delay-4 { animation-delay: 0.4s; opacity: 0; }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left">
+        <div class="topbar-item"><span>📍</span><span>Musterstadt & Umgebung</span></div>
+        <div class="topbar-item"><span>🕐</span><span>Mo–Fr: 7:00–18:00 Uhr</span></div>
+      </div>
+      <div class="topbar-right">
+        <div class="topbar-item"><span>✉️</span><a href="mailto:info@sao-garten.de">info@sao-garten.de</a></div>
+        <div class="topbar-item"><span>📞</span><a href="tel:+491234567890">+49 123 456 789 0</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="SAO_Logo_grün.png" alt="SAO Garten & Landschaftsbau" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#projekte">Projekte</a></li>
+        <li><a href="#ueber-uns">Über uns</a></li>
+        <li><a href="#bewertungen">Bewertungen</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="tel:+491234567890" class="nav-phone">+49 123 456 789 0</a>
+        <a href="#kontakt" class="btn btn-yellow">Kostenlos anfragen</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO – ÄNDERUNG 2: Zweispaltiges Layout mit Personenbild rechts -->
+  <section class="hero">
+    <div class="hero-shape hero-shape-1"></div>
+    <div class="hero-shape hero-shape-2"></div>
+    <div class="container">
+      <div class="hero-layout">
+        <!-- Linke Spalte: Text -->
+        <div class="hero-left">
+          <div class="hero-badge fade-up">
+            <div class="hero-badge-dot"></div>
+            Ihr Garten- & Landschaftsbau Experte
+          </div>
+          <h1 class="fade-up fade-up-delay-1">
+            Ihr Garten in<br /><em>besten Händen</em>
+          </h1>
+          <p class="hero-sub fade-up fade-up-delay-2">
+            Von der Planung bis zur Pflege – wir gestalten und pflegen Ihren Außenbereich mit Leidenschaft, Erfahrung und höchstem Qualitätsanspruch.
+          </p>
+          <div class="hero-buttons fade-up fade-up-delay-3">
+            <a href="#kontakt" class="btn btn-yellow">Jetzt Angebot anfordern →</a>
+            <a href="#projekte" class="btn btn-outline">Unsere Projekte ansehen</a>
+          </div>
+        </div>
+        <!-- Rechte Spalte: Personenbild -->
+        <div class="hero-image-col">
+          <img src="Sao_mit_2_personen.png" alt="SAO Team" class="hero-person-img" />
+        </div>
+      </div>
+      <!-- Stats über volle Breite -->
+      <div class="hero-stats fade-up fade-up-delay-4">
+        <div class="hero-stat">
+          <span class="hero-stat-num">4,9★</span>
+          <span class="hero-stat-label">Bewertung bei Google</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">500+</span>
+          <span class="hero-stat-label">Zufriedene Kunden</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">15+</span>
+          <span class="hero-stat-label">Jahre Erfahrung</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">100%</span>
+          <span class="hero-stat-label">Qualitätsgarantie</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="container">
+      <div class="trust-item"><div class="trust-icon">✅</div><span>Zertifizierter Fachbetrieb</span></div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><div class="trust-icon">🏆</div><span>Ausgezeichnete Qualität</span></div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><div class="trust-icon">📋</div><span>Kostenlose Beratung</span></div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><div class="trust-icon">🌱</div><span>Nachhaltige Methoden</span></div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><div class="trust-icon">⚡</div><span>Schnelle Umsetzung</span></div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="section" id="leistungen">
+    <div class="container">
+      <div class="section-label">Leistungen</div>
+      <h2 class="section-title">Unsere Leistungen für Sie</h2>
+      <p class="section-sub">Vom Rasenmähen bis zur kompletten Gartengestaltung – wir bieten alles aus einer Hand.</p>
+      <div class="services-grid">
+        <div class="service-card" tabindex="0">
+          <img src="Dienste_Gartengestaltung.png" alt="Gartengestaltung" class="service-img" />
+          <div class="service-body">
+            <h3>Gartengestaltung</h3>
+            <p>Individuelle Planung und Umsetzung Ihres Traumgartens – von der ersten Skizze bis zur fertigen Anlage.</p>
+            <a href="#" class="service-link">Mehr erfahren →</a>
+          </div>
+        </div>
+        <div class="service-card" tabindex="0">
+          <img src="Dienste_Rasenpfelge.png" alt="Rasenpflege" class="service-img" />
+          <div class="service-body">
+            <h3>Rasenpflege & Mähservice</h3>
+            <p>Regelmäßige Rasenpflege, Vertikutieren, Düngen und Bewässerung für einen perfekt gepflegten Rasen.</p>
+            <a href="#" class="service-link">Mehr erfahren →</a>
+          </div>
+        </div>
+        <div class="service-card" tabindex="0">
+          <img src="Dienste_Baumarbeit.png" alt="Baumpflege" class="service-img" />
+          <div class="service-body">
+            <h3>Baum- & Heckenpflege</h3>
+            <p>Professioneller Rückschnitt, Formgebung und Pflege Ihrer Bäume und Hecken für gesundes Wachstum.</p>
+            <a href="#" class="service-link">Mehr erfahren →</a>
+          </div>
+        </div>
+        <div class="service-card" tabindex="0">
+          <img src="Dienste_Pflasterarbeit.png" alt="Pflasterarbeiten" class="service-img" />
+          <div class="service-body">
+            <h3>Pflaster- & Terrassenarbeiten</h3>
+            <p>Wege, Terrassen und Einfahrten in hochwertiger Ausführung – funktional und optisch ansprechend.</p>
+            <a href="#" class="service-link">Mehr erfahren →</a>
+          </div>
+        </div>
+        <div class="service-card" tabindex="0">
+          <img src="Dienste_Bepflanzung.png" alt="Bepflanzung" class="service-img" />
+          <div class="service-body">
+            <h3>Bepflanzung & Begrünung</h3>
+            <p>Fachgerechte Auswahl und Pflanzung von Stauden, Sträuchern, Bäumen und Saisonbepflanzungen.</p>
+            <a href="#" class="service-link">Mehr erfahren →</a>
+          </div>
+        </div>
+        <div class="service-card" tabindex="0">
+          <img src="Dienste_Bewässerung.png" alt="Bewässerungssysteme" class="service-img" />
+          <div class="service-body">
+            <h3>Bewässerungssysteme</h3>
+            <p>Automatische Bewässerungsanlagen – zeitgesteuert, wassersparend und zuverlässig für Ihren Garten.</p>
+            <a href="#" class="service-link">Mehr erfahren →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY – ÄNDERUNG 3: 4 Projekte mit echten Bildern -->
+  <section class="section section-alt" id="projekte">
+    <div class="container">
+      <div class="section-label">Referenzen</div>
+      <h2 class="section-title">Unsere Projekte</h2>
+      <p class="section-sub">Ein Blick auf abgeschlossene Projekte – von kleinen Privatgärten bis zu großen Außenanlagen.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="SAO_Schaufel_Bild.png" alt="SAO Gartenarbeit" class="gallery-img" />
+          <div class="gallery-overlay"><span class="gallery-overlay-text">Gartenarbeiten & Erdaushub</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Projekt_Abriss.jpeg" alt="Projekt Abriss" class="gallery-img" />
+          <div class="gallery-overlay"><span class="gallery-overlay-text">Abriss & Rückbau</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Projekt_Zaun.jpeg" alt="Projekt Zaunbau" class="gallery-img" />
+          <div class="gallery-overlay"><span class="gallery-overlay-text">Zaunbau & Einfriedung</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Projekt_Fliesenverlegen.png" alt="Projekt Fliesenverlegen" class="gallery-img" />
+          <div class="gallery-overlay"><span class="gallery-overlay-text">Fliesen & Pflasterarbeiten</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUMBERS -->
+  <div class="numbers-section">
+    <div class="container">
+      <div class="numbers-grid">
+        <div class="number-item">
+          <div class="number-val">500+</div>
+          <div class="number-label">Abgeschlossene Projekte</div>
+        </div>
+        <div class="number-item">
+          <div class="number-val">15+</div>
+          <div class="number-label">Jahre Erfahrung</div>
+        </div>
+        <div class="number-item">
+          <div class="number-val">4,9★</div>
+          <div class="number-label">Durchschnittsbewertung</div>
+        </div>
+        <div class="number-item">
+          <div class="number-val">12</div>
+          <div class="number-label">Fachkundige Mitarbeiter</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section" id="ueber-uns">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img-wrapper">
+          <img src="Gemini_Generated_Image_cm7zzxcm7zzxcm7z.png" alt="SAO Team – Garten & Landschaftsbau" class="about-img" />
+          <div class="about-badge">
+            <div class="about-badge-num">15+</div>
+            <div class="about-badge-label">Jahre<br />Erfahrung</div>
+          </div>
+        </div>
+        <div class="about-content">
+          <div class="section-label">Über uns</div>
+          <h2 class="section-title" style="margin-bottom:0;">Leidenschaft für Grün – seit über 15 Jahren</h2>
+          <p>Wir sind SAO Garten & Landschaftsbau – ein familiengeführtes Unternehmen mit echter Begeisterung für alles, was grünt und wächst. Unser erfahrenes Team begleitet Sie von der ersten Idee bis zur letzten Pflanzung.</p>
+          <p>Ob Neuanlage, Umgestaltung oder laufende Pflege: Wir setzen Ihre Wünsche mit handwerklicher Sorgfalt und modernen Techniken um – immer pünktlich, immer fair.</p>
+          <div class="about-features">
+            <div class="about-feature"><div class="about-feature-icon">✓</div><span>Zertifizierter Fachbetrieb nach GaLaBau-Standards</span></div>
+            <div class="about-feature"><div class="about-feature-icon">✓</div><span>Kostenlose Erstberatung & transparente Angebote</span></div>
+            <div class="about-feature"><div class="about-feature-icon">✓</div><span>Nachhaltige Materialien & umweltschonende Methoden</span></div>
+            <div class="about-feature"><div class="about-feature-icon">✓</div><span>Feste Ansprechpartner vom Erstkontakt bis zur Fertigstellung</span></div>
+            <div class="about-feature"><div class="about-feature-icon">✓</div><span>Vollversichert & gewährleistungsgesichert</span></div>
+          </div>
+          <div style="margin-top: 8px;">
+            <a href="#kontakt" class="btn btn-green">Gespräch vereinbaren →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="section section-green">
+    <div class="container">
+      <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <div class="section-label" style="justify-content: center;">Warum SAO?</div>
+        <h2 class="section-title">Was uns auszeichnet</h2>
+        <p class="section-sub" style="margin: 0 auto;">Wir verbinden handwerkliches Können mit echtem Engagement – für Ergebnisse, die begeistern.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card"><div class="why-icon">🌿</div><h4>Fachliche Expertise</h4><p>Unser Team besteht aus ausgebildeten Gärtner/innen und Landschaftsbauern mit langjähriger Praxiserfahrung.</p></div>
+        <div class="why-card"><div class="why-icon">📐</div><h4>Individuelle Planung</h4><p>Jeder Garten ist einzigartig. Wir entwickeln maßgeschneiderte Konzepte, die zu Ihren Wünschen und Ihrem Budget passen.</p></div>
+        <div class="why-card"><div class="why-icon">⏱️</div><h4>Pünktlich & zuverlässig</h4><p>Vereinbarte Termine halten wir ein. Sie erhalten regelmäßige Updates zum Projektfortschritt.</p></div>
+        <div class="why-card"><div class="why-icon">💬</div><h4>Persönliche Betreuung</h4><p>Ein fester Ansprechpartner für Sie – von der ersten Anfrage bis zur endgültigen Abnahme Ihres Projekts.</p></div>
+        <div class="why-card"><div class="why-icon">🌱</div><h4>Nachhaltig & ökologisch</h4><p>Wir setzen auf umweltfreundliche Methoden, regionale Pflanzen und ressourcenschonende Materialien.</p></div>
+        <div class="why-card"><div class="why-icon">💰</div><h4>Faire Preise</h4><p>Transparente Kalkulation ohne versteckte Kosten. Sie wissen immer, wofür Sie bezahlen.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section" id="bewertungen">
+    <div class="container">
+      <div class="reviews-header">
+        <div>
+          <div class="section-label">Kundenstimmen</div>
+          <h2 class="section-title" style="margin-bottom: 0;">Was unsere Kunden sagen</h2>
+        </div>
+        <div class="reviews-rating-big">
+          <div class="rating-num-big">4,9</div>
+          <div class="rating-info">
+            <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+            <div style="font-size: 14px; color: var(--text-muted);">Basierend auf 180+ Bewertungen</div>
+            <div style="font-size: 13px; color: var(--green-2); margin-top: 2px; font-weight: 500;">● Google · Trustpilot</div>
+          </div>
+        </div>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+          <p class="review-text">„Absolut top! Das Team hat unseren verwilderten Garten in eine echte Wohlfühloase verwandelt. Schnelle Abwicklung, faire Preise und das Ergebnis übertrifft alle Erwartungen."</p>
+          <div class="review-author">
+            <div class="review-avatar">MK</div>
+            <div><div class="review-name">Michael K.</div><div class="review-date">März 2025</div></div>
+            <div class="review-source"><span>G</span> Google</div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+          <p class="review-text">„SAO hat unsere Terrasse neu gepflastert und die Bepflanzung komplett überarbeitet. Alles wurde wie besprochen geliefert – pünktlich und sauber. Sehr empfehlenswert!"</p>
+          <div class="review-author">
+            <div class="review-avatar">SL</div>
+            <div><div class="review-name">Sabine L.</div><div class="review-date">Februar 2025</div></div>
+            <div class="review-source"><span>G</span> Google</div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+          <p class="review-text">„Wir lassen unseren Rasen seit zwei Jahren von SAO pflegen. Immer zuverlässig, immer freundlich. Der Rasen sieht aus wie ein Golfplatz. Danke!"</p>
+          <div class="review-author">
+            <div class="review-avatar">TW</div>
+            <div><div class="review-name">Thomas W.</div><div class="review-date">Januar 2025</div></div>
+            <div class="review-source"><span>G</span> Google</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt" id="faq">
+    <div class="container">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Häufige Fragen</h2>
+      <div class="faq-list">
+        <div class="faq-item open">
+          <div class="faq-question" onclick="toggleFaq(this)"><span>Bieten Sie eine kostenlose Erstberatung an?</span><div class="faq-icon">+</div></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Ja! Wir bieten eine kostenlose, unverbindliche Erstberatung vor Ort an. Dabei besprechen wir Ihre Wünsche, besichtigen das Grundstück und geben Ihnen erste Ideen und Kostenschätzungen. Vereinbaren Sie einfach einen Termin unter unserer Telefonnummer oder über das Kontaktformular.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)"><span>In welchem Radius sind Sie tätig?</span><div class="faq-icon">+</div></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Wir sind hauptsächlich in Musterstadt und dem umliegenden Umkreis von ca. 50 km tätig. Bei größeren Projekten fahren wir auf Anfrage auch weiter. Kontaktieren Sie uns – wir finden eine Lösung.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)"><span>Wie lange dauert die Umsetzung eines Gartenprojekts?</span><div class="faq-icon">+</div></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Die Dauer hängt stark vom Umfang des Projekts ab. Kleinere Arbeiten erledigen wir oft im Tageseinsatz. Eine komplette Gartengestaltung kann je nach Größe 1–3 Wochen in Anspruch nehmen. Nach der Beratung erhalten Sie einen konkreten Zeitplan.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)"><span>Übernehmen Sie auch laufende Gartenpflegeverträge?</span><div class="faq-icon">+</div></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Ja, wir bieten Jahrespflegeverträge für Privatgärten und Gewerbeimmobilien an. So ist Ihr Garten das ganze Jahr über in besten Händen – inklusive saisonaler Arbeiten wie Frühjahrs- und Herbstschnitt sowie regelmäßiger Rasenpflege.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)"><span>Sind Sie versichert und was passiert bei Schäden?</span><div class="faq-icon">+</div></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Ja, wir sind vollumfänglich betriebshaftpflichtversichert. Im unwahrscheinlichen Fall eines Schadens sind Sie als Auftraggeber abgesichert. Wir arbeiten transparent und professionell – Ihre Zufriedenheit und Sicherheit haben für uns höchste Priorität.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)"><span>Wann ist die beste Zeit für eine Gartenneugestaltung?</span><div class="faq-icon">+</div></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Grundsätzlich ist Frühjahr (März–Mai) und Herbst (September–November) die ideale Zeit für Pflanzarbeiten und Neugestaltungen. Pflasterarbeiten und Erdarbeiten können wir ganzjährig durchführen.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA – ÄNDERUNG 4: SAO_alleine.png mittig zwischen Text und Formular -->
+  <section class="cta-section" id="kontakt">
+    <div class="container">
+      <div class="cta-inner">
+        <!-- Links: Text & Kontaktdaten -->
+        <div class="cta-text">
+          <h2>Bereit für Ihren<br />Traumgarten?</h2>
+          <p>Kontaktieren Sie uns jetzt für eine kostenlose Erstberatung. Wir melden uns innerhalb von 24 Stunden bei Ihnen.</p>
+          <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 28px;">
+            <div style="display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,0.8); font-size: 15px;">
+              <span style="font-size: 20px;">📞</span>
+              <a href="tel:+491234567890" style="color: white; font-weight: 500;">+49 123 456 789 0</a>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,0.8); font-size: 15px;">
+              <span style="font-size: 20px;">✉️</span>
+              <a href="mailto:info@sao-garten.de" style="color: white; font-weight: 500;">info@sao-garten.de</a>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,0.8); font-size: 15px;">
+              <span style="font-size: 20px;">📍</span>
+              <span>Musterstraße 12, 12345 Musterstadt</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mitte: Personenbild – füllt volle Höhe -->
+        <div class="cta-person-col">
+          <img src="SAO_alleine.png" alt="SAO Mitarbeiter" class="cta-person-img" />
+        </div>
+
+        <!-- Rechts: Formular -->
+        <div class="cta-form-col"><div class="cta-form">
+          <h3>Kostenlose Anfrage</h3>
+          <div class="form-group">
+            <input type="text" class="form-input" placeholder="Ihr Name *" required />
+          </div>
+          <div class="form-group">
+            <input type="tel" class="form-input" placeholder="Ihre Telefonnummer *" required />
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-input" placeholder="Ihre E-Mail" />
+          </div>
+          <div class="form-group">
+            <select class="form-input" style="cursor: pointer;">
+              <option value="" style="color: #333;">Gewünschte Leistung</option>
+              <option value="" style="color: #333;">Gartengestaltung</option>
+              <option value="" style="color: #333;">Rasenpflege</option>
+              <option value="" style="color: #333;">Baumschnitt</option>
+              <option value="" style="color: #333;">Pflasterarbeiten</option>
+              <option value="" style="color: #333;">Sonstiges</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea class="form-input" rows="3" placeholder="Kurze Beschreibung Ihres Projekts..." style="resize: none;"></textarea>
+          </div>
+          <button type="submit" class="btn btn-yellow" style="width: 100%; justify-content: center; margin-top: 4px;">
+            Anfrage absenden →
+          </button>
+          <p style="font-size: 11px; color: rgba(255,255,255,0.45); text-align: center; margin-top: 12px;">
+            Kostenlos & unverbindlich • Antwort innerhalb 24h
+          </p>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <img src="brand_assets/SAO_Logo.png" alt="SAO Garten" />
+          </div>
+          <p class="footer-desc">Ihr zuverlässiger Partner für Garten- und Landschaftsbau in Musterstadt und Umgebung. Qualität, die man sieht und fühlt.</p>
+          <div class="footer-social">
+            <a href="#" class="footer-social-btn">f</a>
+            <a href="#" class="footer-social-btn">in</a>
+            <a href="#" class="footer-social-btn">▶</a>
+            <a href="#" class="footer-social-btn">📷</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Leistungen</h4>
+          <ul class="footer-links">
+            <li><a href="#">Gartengestaltung</a></li>
+            <li><a href="#">Rasenpflege</a></li>
+            <li><a href="#">Baumschnitt</a></li>
+            <li><a href="#">Pflasterarbeiten</a></li>
+            <li><a href="#">Bepflanzung</a></li>
+            <li><a href="#">Bewässerung</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Unternehmen</h4>
+          <ul class="footer-links">
+            <li><a href="#">Über uns</a></li>
+            <li><a href="#">Projekte</a></li>
+            <li><a href="#">Bewertungen</a></li>
+            <li><a href="#">Karriere</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <div class="footer-contact-item"><span>📍</span><span>Musterstraße 12<br />12345 Musterstadt</span></div>
+          <div class="footer-contact-item"><span>📞</span><span><a href="tel:+491234567890" style="color: rgba(255,255,255,0.55);">+49 123 456 789 0</a></span></div>
+          <div class="footer-contact-item"><span>✉️</span><span><a href="mailto:info@sao-garten.de" style="color: rgba(255,255,255,0.55);">info@sao-garten.de</a></span></div>
+          <div class="footer-contact-item"><span>🕐</span><span>Mo–Fr: 7:00–18:00 Uhr</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 SAO Garten & Landschaftsbau. Alle Rechte vorbehalten.</span>
+        <div class="footer-bottom-links">
+          <a href="#">Impressum</a>
+          <a href="#">Datenschutz</a>
+          <a href="#">AGB</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleFaq(el) {
+      const item = el.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    // Scroll-Animationen (progressive enhancement)
+    if ('IntersectionObserver' in window) {
+      const cards = document.querySelectorAll('.service-card, .why-card, .review-card, .gallery-item');
+      const show = (el) => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '0';
+            entry.target.style.transform = 'translateY(16px)';
+            entry.target.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            requestAnimationFrame(() => requestAnimationFrame(() => show(entry.target)));
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.05 });
+      cards.forEach(el => observer.observe(el));
+    }
+  </script>
+
+</body>
+</html>
